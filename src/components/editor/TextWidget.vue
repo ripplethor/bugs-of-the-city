@@ -4,17 +4,21 @@
       <span v-if="!preview" @click="hVisible = !hVisible" style="cursor: pointer;"> 
         <i class="fa fa-ellipsis-v" aria-hidden="true"></i> 
       </span>
-      <div class="btn-group btn-group-sm" v-if="!preview && hVisible" v-for="(heading, key) in item.headings" @click="changeToHeading({headingKey: key})" 
-         title="Change Heading">
-          <button type="button" class="btn btn-primary" style="cursor: pointer;"> {{ key }} </button>
+      <div v-if="!preview && hVisible">
+        <div class="btn-group btn-group-sm" 
+            v-for="(heading, key) in item.headings" 
+            v-bind:key="key"
+            @click="changeToHeading({headingKey: key})" 
+            title="Change Heading">
+            <button type="button" class="btn btn-primary" style="cursor: pointer;"> {{ key }} </button>
+        </div>
       </div>
     </div>
-    <div :id="item.i" :contenteditable="contenteditable" style="padding:6px 10px;" v-on:paste.prevent="pasteData" 
-    v-model="item.title" @blur="save"
-          :class="[{ 'heading1': item.headings.h1,
-            'heading2': item.headings.h2, 
-            'heading3': item.headings.h3, 
-            }]" >
+    <div :id="item.i" :contenteditable="contenteditable" style="padding:6px 10px;" 
+        v-on:paste.prevent="pasteData" 
+        :content="item.title" 
+        @blur="save"
+        :class="[{ 'heading1': item.headings.h1,'heading2': item.headings.h2,'heading3': item.headings.h3,}]">
             {{ item.title }} 
       </div>
   </div>

@@ -2,7 +2,7 @@
   <div  :style="getStyle" >
     <div v-if="!preview" @click="editImage = !editImage" class="preview">
       <i v-if="!editImage" class="fa fa-pencil" aria-hidden="true"></i>
-      <i v-else="!editImage" class="fa fa-times" aria-hidden="true"></i>
+      <i v-else class="fa fa-times" aria-hidden="true"></i>
     </div>
     <input v-if="editImage" type="text" v-model="item.location" @blur="save" class="edit">
   </div>
