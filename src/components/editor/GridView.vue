@@ -9,7 +9,7 @@
       </span>
       <button class="btn btn-outline-primary" @click="disableGrid"> 
         <span v-if="preview"> Edit </span>
-        <span v-else="preview"> Preview </span>
+        <span v-else> Preview </span>
       </button>
     </div>
     <hr>
